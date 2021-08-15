@@ -1,0 +1,8 @@
+{% extends "applayout.html" %}
+{% block title %} Ticket {{ ticket.pk }} {% endblock %}
+{% block content %}
+<h1> You are viewing ticket submitted by {{ ticket.submitter }} </h1>
+    <p>
+        {{ ticket.body }}
+    </p>
+{% endblock %}

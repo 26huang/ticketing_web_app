@@ -1,12 +1,9 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Index</title>
-</head>
-<body>
-    <h1>Welcome to ticketing project</h1>
-    <a href="/submit">Submit a ticket</a>
-    <a href="/tickets">View tickets</a>
-</body>
-</html>
+{% extends "applayout.html" %}
+{% load static %}
+{% block title %}
+Index
+{% endblock %}
+{% block content %}
+<h1>Welcome to ticketing project index page.</h1>
+<script src="{% static 'index/index.js' %}"></script>
+{% endblock %}
