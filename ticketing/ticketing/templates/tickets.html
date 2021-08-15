@@ -19,24 +19,39 @@
 <!--        </div>-->
 <!--        {% endfor %}-->
 
+<!--        {% for ticket in tickets %}-->
+<!--            {% if ticket.submitter == 'new user' %}-->
+<!--            <div>-->
+<!--                The ticket was submitted by {{ ticket.submitter }} at {{ ticket.created_at }}-->
+<!--                And has the body is-->
+<!--                <p>-->
+<!--                    {{ ticket.body }}-->
+<!--                </p>-->
+<!--            </div>-->
+<!--            {% else %}-->
+<!--            <div style="color: red">-->
+<!--                The ticket was submitted by {{ ticket.submitter }} at {{ ticket.created_at }}-->
+<!--                And has the body is-->
+<!--                <p>-->
+<!--                    {{ ticket.body }}-->
+<!--                </p>-->
+<!--            </div>-->
+<!--            {% endif %}-->
+<!--            <a href="{% url 'ticket' ticket.pk %}">View this ticket</a>-->
+<!--        {% endfor %}-->
+    <div class="tickets">
         {% for ticket in tickets %}
-            {% if ticket.submitter == 'new user' %}
-            <div>
-                The ticket was submitted by {{ ticket.submitter }} at {{ ticket.created_at }}
-                And has the body is
-                <p>
-                    {{ ticket.body }}
-                </p>
+            <div class="ticket">
+                <h3>Ticket {{ ticket.pk }}</h3>
+                <div class="info">
+                    Submitted by <strong>{{ticket.submitter}}</strong>
+                    on <strong>{{ticket.created_at}}</strong>
+                </div>
+                <h4>Description:</h4>
+                <div class="body">{{ticket.body}}</div>
+                <a class="viewticket" href="{% url 'ticket' ticket.pk %}">View this ticket</a>
             </div>
-            {% else %}
-            <div style="color: red">
-                The ticket was submitted by {{ ticket.submitter }} at {{ ticket.created_at }}
-                And has the body is
-                <p>
-                    {{ ticket.body }}
-                </p>
-            </div>
-            {% endif %}
-            <a href="{% url 'ticket' ticket.pk %}">View this ticket</a>
         {% endfor %}
+    </div>
+
 {% endblock %}
