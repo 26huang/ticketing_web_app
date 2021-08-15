@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Submit</title>
+</head>
+<body>
+    Submit a ticket!
+    <form action="/submit/" method="post">
+        {% csrf_token %}
+        <input type="text" name="username" placeholder="Username">
+        <br>
+        <textarea name="body" placeholder="Body" ></textarea>
+        </br>
+        <input type="submit" value="Submit">
+    </form>
+</body>
+</html>

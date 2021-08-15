@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    View tickets!
+<!--    The first ticket was submitted by {{ tickets.0.submitter }}-->
+<!--    At {{ tickets.0.created_at }}-->
+<!--    And has the body-->
+<!--    <p>-->
+<!--        {{ tickets.0.body }}-->
+<!--    </p>-->
+
+<!--        {% for ticket in tickets %}-->
+<!--        <div>-->
+<!--            The ticket was submitted by {{ ticket.submitter }} at {{ ticket.created_at }}-->
+<!--            And has the body is-->
+<!--            <p>-->
+<!--                {{ ticket.body }}-->
+<!--            </p>-->
+<!--        </div>-->
+<!--        {% endfor %}-->
+
+        {% for ticket in tickets %}
+            {% if ticket.submitter == 'new user' %}
+            <div>
+                The ticket was submitted by {{ ticket.submitter }} at {{ ticket.created_at }}
+                And has the body is
+                <p>
+                    {{ ticket.body }}
+                </p>
+            </div>
+            {% else %}
+            <div style="color: red">
+                The ticket was submitted by {{ ticket.submitter }} at {{ ticket.created_at }}
+                And has the body is
+                <p>
+                    {{ ticket.body }}
+                </p>
+            </div>
+            {% endif %}
+        {% endfor %}
+
+</body>
+</html>
